@@ -1,0 +1,50 @@
+<span class="bodydisplay">
+  <article class="post">
+    <div class="posthead">
+      <h2 class="posttitle" href="/post/{{id}}">{{title}}</h2>
+      <p class="postdata">Created by
+        {{user.name}}
+        on
+        {{format_date date_created}}</p>
+    </div>
+    <div class="postbody">
+      <p class="postcontent">{{body}}
+      </p>
+    </div>
+  </article>
+  <section class="comments">
+    {{!-- {{#each comments as |comment|}} --}}
+    <div class="commentcard">
+      <div class="commenthead"></div>
+    
+    <div class="comment">
+      <p class="commentcontent">
+        this is a comment
+      </p>
+      <p class="commentdata">
+        -
+        <a href="/profile">Heartsleeves</a>
+        {{!-- {{user.name}} --}}
+        {{format_date date_created}}
+      </p>
+    </div>
+    </div>
+    {{!-- {{/each}} --}}
+    <div class="bigcard">
+    <div class="cardinput">
+      <div class="inputdiv">
+      <div class="inputdiv">
+        <label for="bodyinput">Comment</label>
+        <textarea
+          id="bodyinput"
+          name="bodyinput"
+          placeholder="What would you like to say?"
+        ></textarea>
+      </div>
+      <button type="submit" id="submitbtn">Submit</button>
+    </div>
+    </div>
+  </section>
+  <button class="addcommentbtn">Comment</button>
+
+</span>

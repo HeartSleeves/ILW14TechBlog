@@ -43,6 +43,7 @@ header {
   border-radius: 5px;
   border: 5px solid #f2f7f5;
   background-color: #f2f7f5;
+  box-shadow: 5px 5px #ffa8ba;
   width: 300px;
   text-align: center;
   margin: 0 0 20px 50px;
@@ -56,9 +57,20 @@ nav {
   margin: 0 0 0 50px;
   font-size: x-large;
 }
-nav p {
+nav a {
   display: inline;
   font-size: large;
+  margin: 10px 0 10px 0;
+}
+nav a:link {
+  color: #f2f7f5;
+}
+nav a:visited {
+  color: #f2f7f5;
+}
+nav a:hover {
+  color: #ffa8ba;
+  cursor: pointer;
 }
 
 .bodydisplay {
@@ -67,11 +79,13 @@ nav p {
   grid-row-start: 1;
   grid-row-end: 2;
 }
-
 .post {
   border: 5px solid #475d5b;
   border-radius: 5px;
+  height: fit-content;
   margin: 15px 5px 15px 5px;
+  display: flex;
+  flex-flow: column nowrap;
 }
 .posthead {
   display: flex;
@@ -88,19 +102,98 @@ nav p {
   color: #f2f7f5;
   font-size: larger;
 }
+.posttitle:hover {
+  cursor: pointer;
+}
+.posttitle a:link {
+  color: #f2f7f5;
+}
+.posttitle a:active {
+  color: #fa5246;
+}
+.posttitle a:visited {
+  color: #ffa8ba;
+}
 .postdata {
   color: #91aba9;
   font-size: small;
 }
 .postbody {
-  margin: 5px;
+  width: 95%;
   font-size: large;
+  font-weight: 500;
+  margin: 5px 30px 0 10px;
+}
+.commentcard {
+  border: 2px solid #475d5b;
+  border-radius: 5px;
+  height: fit-content;
+  margin: 15px 5px 15px 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 60%;
+  position: relative;
+  left: 30px;
+}
+.commenthead {
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: flex-start;
+  justify-content: space-between;
+  height: 10px;
+  width: 100%;
+  background-color: #00473e;
+}
+.commenthead * {
+  margin: 5px 10px 5px 10px;
 }
 
-.signup {
+.commentbody {
+  align-self: center;
+  width: 95%;
+  font-size: large;
+  font-weight: 500;
+  margin: 5px 30px 0 10px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.commentcontent {
+  font-size: large;
+  font-weight: 400;
+  margin: 5px 5px 5px 15px;
+}
+.commentinput {
+  width: 95%;
+  height: fit-content;
+  align-self: center;
+  justify-self: center;
+}
+.commentdata a:hover {
+  cursor: pointer;
+}
+.commentdata a a:link {
+  color: #f2f7f5;
+}
+.commentdata a a:active {
+  color: #fa5246;
+}
+.commentdata a a:visited {
+  color: #ffa8ba;
+}
+.commentdata {
+  color: #91aba9;
+  font-size: small;
+  margin-left: 30px;
+}
+.commentdata a {
+  font-size: medium;
+  font-weight: 400;
+}
+.bigcard {
   border-radius: 5px;
   border: 5px solid #475d5b;
-  height: 350px;
+  height: fit-content;
+  padding-bottom: 15px;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -113,30 +206,55 @@ nav p {
   margin: 0;
   padding: 10px;
 }
-.accountinput {
-  margin: 15px;
-  display: block;
+.cardinput {
+  display: flex;
+  flex-flow: column nowrap;
 }
-.accountinput * {
-  width: 500px;
-  display: block;
-  margin: 10px 0 10px 10px;
+.inputdiv {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 15px;
 }
-.accountinput label {
+label {
   font-size: x-large;
   font-weight: 500;
+  width: 95%;
+  margin: 15px 30px 0 40px;
 }
-.accountinput input {
-  margin-right: 15px;
+input {
+  align-self: center;
   height: 30px;
+  width: 95%;
+}
+#bodyinput {
+  align-self: center;
+  width: 95%;
+  height: 200px;
 }
 
-button {
+#submitbtn {
+  align-self: center;
+  justify-self: center;
   background-color: #faae2b;
   color: #00473e;
   font-size: large;
   height: 36px;
-  width: 100px;
+  width: 95%;
   border-radius: 5px;
-  margin: 10px 0 0 30px;
+  margin: 36px 0 10px 0;
+}
+.addcommentbtn {
+  align-self: center;
+  justify-self: center;
+  background-color: #faae2b;
+  color: #00473e;
+  font-size: large;
+  font-weight: 400;
+  height: 36px;
+  width: 60%;
+  border-radius: 5px;
+  margin: 10px 0 0 0;
+  width: 60%;
+  position: relative;
+  left: 35px;
 }

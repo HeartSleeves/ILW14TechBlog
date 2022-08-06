@@ -1,0 +1,19 @@
+<span class="bodydisplay">
+  {{#each posts as |post|}}
+    <article class="post">
+      <div class="posthead">
+        <h2 class="posttitle"><a
+            href="/post/{{post.id}}"
+          >{{post.title}}</a></h2>
+        <p class="postdata">Created by
+          {{post.user.name}}
+          on
+          {{format_date post.date_created}}</p>
+      </div>
+      <div class="postbody">
+        <p class="postcontent">{{post.body}}
+        </p>
+      </div>
+    </article>
+  {{/each}}
+</span>
