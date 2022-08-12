@@ -1,5 +1,40 @@
-<body>
-  <form class="bigcard" id="newpost">
+<body class="bodydisplay">
+  <div class="dashboard">
+    <h2 class="dashheader">Welcome {{name}}!</h2>
+    {{#if posts.length}}
+    <h2 class="dashheader">You've made {{posts.length}} Posts:</h2>
+    {{else}}
+    <h2 class="dashheader">Create your first post!</h2>
+    {{/if}}
+  
+
+
+  {{#if posts.length}}
+    <div>
+      <span>
+        <article class="post">
+  {{#each posts as |post|}}
+      <div class="posthead">
+        <h2 class="posttitle"><a
+            href="/post/{{post.id}}"
+          >{{post.title}}</a></h2>
+        <p class="postdata">Created
+          on
+          {{format_date post.date_created}}</p>
+      </div>
+      <div class="postbody">
+        <p class="postcontent">{{post.body}}
+        </p>
+        <button class="deletebtn" data-id="{{post.id}}">X</button>
+      </div>
+  {{/each}}
+</article>
+</span>
+    </div>
+  {{/if}}
+  </div>
+</div>
+<form class="bigcard hidden" id="newpost">
     <div>
       <h2 class="cardheader">New Post</h2>
     </div>
@@ -10,7 +45,7 @@
           id="titleinput"
           type="text"
           name="titleinput"
-          placeholder="Username"
+          placeholder="Title"
         />
       </div>
       <div class="inputdiv">
@@ -24,6 +59,7 @@
       <button type="submit" id="submitbtn">Submit</button>
     </div>
   </form>
+  <button id="addpost">Make a new post</button>
 </body>
 
-<script src="/js/post.js"></script>
+<script src="./js/profile.js"></script><script src="/js/post.js"></script>

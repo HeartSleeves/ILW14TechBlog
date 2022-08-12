@@ -6,7 +6,7 @@
             href="/post/{{post.id}}"
           >{{post.title}}</a></h2>
         <p class="postdata">Created by
-          {{post.user.name}}
+          <a href="/profile/{{post.user_id}}">{{post.user.name}}</a>
           on
           {{format_date post.date_created}}</p>
       </div>

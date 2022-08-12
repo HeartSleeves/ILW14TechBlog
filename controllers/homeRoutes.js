@@ -54,17 +54,27 @@ router.get("/post/:id", async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get(
-  "/dashboard",
-  // withAuth,
-  async (req, res) => {
-    try {
-      res.render("dashboard");
-    } catch (err) {
-      res.status(500).json(err);
-    }
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      where: {
+        id: req.session.user_id,
+      },
+      include: {
+        model: Post,
+      },
+    });
+    console.log(userData);
+    const user = userData.get({ plain: true });
+    res.render("dashboard", {
+      ...user,
+      logged_in: req.session.logged_in,
+      layout: "main2",
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
-);
+});
 
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -88,14 +98,15 @@ router.get("/signup", (req, res) => {
 
 router.get("/profile/:id", async (req, res) => {
   try {
-    const postData = await Post.findAll({
-      where: { user_id: req.params.id },
+    const userData = await User.findByPk(req.params.id, {
+      include: {
+        model: Post,
+      },
     });
 
-    const post = postData.get({ plain: true });
-
+    const user = userData.get({ plain: true });
     res.render("profile", {
-      ...post,
+      ...user,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

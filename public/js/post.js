@@ -14,11 +14,23 @@ const newPostHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/");
+      document.location.replace("/dashboard");
     } else {
       alert("Failed to create post");
     }
   }
+  document.querySelector("#newpost").classList.add("hidden");
+  addbtn.classList.remove("hidden");
 };
 
-document.querySelector("#newpost").addEventListener("submit", newPostHandler);
+function showAddComment() {
+  document.querySelector("#newpost").classList.remove("hidden");
+  addbtn.classList.add("hidden");
+}
+
+const addbtn = document.querySelector("#addpost");
+addbtn.addEventListener("click", showAddComment);
+
+const submitbtn = document
+  .querySelector("#newpost")
+  .addEventListener("submit", newPostHandler);
