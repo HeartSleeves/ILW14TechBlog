@@ -11,9 +11,7 @@ router.post("/", async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.send(
-        '<script>alert("User created successfully"); window.location.href = "/signup";{" "}</script>'
-      );
+      res.redirect("/");
     });
   } catch (err) {
     res.status(400).json(err);

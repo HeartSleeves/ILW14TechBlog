@@ -9,6 +9,7 @@
         {{user.name}}
         on
         {{format_date date_created}}</p>
+        <p class="postid hidden">{{id}}</p>
     </div>
     <div class="postbody">
       <p class="postcontent">{{body}}
@@ -16,23 +17,23 @@
     </div>
   </article>
   <section class="comments">
-    {{!-- {{#each comments as |comment|}} --}}
+    {{#each comments as |comment|}}
     <div class="commentcard">
       <div class="commenthead"></div>
     
     <div class="comment">
       <p class="commentcontent">
-        this is a comment
+        {{comment.body}}
       </p>
       <p class="commentdata">
         -
-        <a href="/profile">Heartsleeves</a>
-        {{!-- {{user.name}} --}}
+        <a href="/profile/{{user.id}}">{{user.name}}
+        </a>
         {{format_date date_created}}
       </p>
     </div>
     </div>
-    {{!-- {{/each}} --}}
+    {{/each}}
     <div class="bigcard hidden" id="addcomment">
     <div class="cardinput">
       <div class="inputdiv">

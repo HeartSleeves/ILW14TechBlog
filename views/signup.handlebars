@@ -1,22 +1,22 @@
 <body>
-  <form class="bigcard" action="/api/users/add" method="POST">
+  <form class="bigcard signup-form">
     <div>
       <h2 class="cardheader">Signup</h2>
     </div>
     <div class="cardinput">
       <div class="inputdiv">
         <label for="username">Username</label>
-        <input type="text" name="name" placeholder="Username" />
+        <input id="user-signup" type="text" placeholder="Username" />
       </div>
       <div class="inputdiv">
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password" />
+        <input id="password-signup" type="password" placeholder="Password" />
       </div>
-      <button type="submit" href="/api/users/add" id="submitbtn">Signup</button>
+      <button type="submit" id="submitbtn">Signup</button>
     </div>
     <div class="commentdata">
       <a href="/login" class="loginswitch">Login instead?</a></div>
   </form>
 </body>
 
-<script src="./js/login.js"></script>
+<script src="./js/signup.js"></script>
