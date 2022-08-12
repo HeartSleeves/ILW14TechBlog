@@ -49,6 +49,7 @@ header {
   margin: 0 0 20px 50px;
   font-size: xx-large;
 }
+
 nav {
   width: 310px;
   display: flex;
@@ -57,20 +58,24 @@ nav {
   margin: 0 0 0 50px;
   font-size: x-large;
 }
-nav a {
+.navbtn {
   display: inline;
   font-size: large;
   margin: 10px 0 10px 0;
+  color: #f2f7f5;
+  background-color: #00473e;
+  border: none !important;
 }
-nav a:link {
+.navbtn:link {
   color: #f2f7f5;
 }
-nav a:visited {
+.navbtn:visited {
   color: #f2f7f5;
 }
-nav a:hover {
+.navbtn:hover {
   color: #ffa8ba;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .bodydisplay {
@@ -249,7 +254,14 @@ input {
   border-radius: 5px;
   margin: 36px 0 10px 0;
 }
-.addcommentbtn {
+#submitbtn[type="submit"]:hover {
+  cursor: pointer;
+}
+#submitbtn[type="submit"]:active {
+  background-color: #ffa8ba;
+  border: inset;
+}
+#addcommentbtn {
   align-self: center;
   justify-self: center;
   background-color: #faae2b;
@@ -263,4 +275,15 @@ input {
   width: 60%;
   position: relative;
   left: 35px;
+}
+#addcommentbtn:hover {
+  cursor: pointer;
+}
+#addcommentbtn:active {
+  background-color: #ffa8ba;
+  border: inset;
+}
+
+.hidden {
+  display: none;
 }

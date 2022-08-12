@@ -2,14 +2,17 @@ const loginFormHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from the login form
-  const user = document.querySelector("#user-login").value.trim();
+  const name = document.querySelector("#user-login").value.trim();
   const password = document.querySelector("#password-login").value.trim();
 
-  if (user && password) {
+  console.log(name);
+  console.log(password);
+
+  if (name && password) {
     // Send a POST request to the API endpoint
     const response = await fetch("/api/users/login", {
       method: "POST",
-      body: JSON.stringify({ user, password }),
+      body: JSON.stringify({ name, password }),
       headers: { "Content-Type": "application/json" },
     });
 
@@ -22,27 +25,26 @@ const loginFormHandler = async (event) => {
   }
 };
 
-// const signupFormHandler = async (event) => {
-//   event.preventDefault();
+const signupFormHandler = async (event) => {
+  event.preventDefault();
 
-//   const user = document.querySelector('#user-signup').value.trim();
-//   const user = document.querySelector('#user-signup').value.trim();
-//   const password = document.querySelector('#password-signup').value.trim();
+  const name = document.querySelector("#user-signup").value.trim();
+  const password = document.querySelector("#password-signup").value.trim();
 
-//   if (user && user && password) {
-//     const response = await fetch('/api/users', {
-//       method: 'POST',
-//       body: JSON.stringify({ user, user, password }),
-//       headers: { 'Content-Type': 'application/json' },
-//     });
+  if (name && password) {
+    const response = await fetch("/api/users/", {
+      method: "POST",
+      body: JSON.stringify({ name, name, password }),
+      headers: { "Content-Type": "application/json" },
+    });
 
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert(response.statusText);
-//     }
-//   }
-// };
+    if (response.ok) {
+      document.location.replace("/profile");
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
 
 document
   .querySelector(".login-form")

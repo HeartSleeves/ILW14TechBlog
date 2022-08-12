@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-router.post("/add", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const userData = await User.create({
       ...req.body,
@@ -11,16 +11,16 @@ router.post("/add", async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      // res.send(
-      //   '<script>alert("User created successfully"); window.location.href = "/signup";{" "}</script>'
-      // );
+      res.send(
+        '<script>alert("User created successfully"); window.location.href = "/signup";{" "}</script>'
+      );
     });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.get("/all", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const users = await User.findAll();
     res.status(200).json(users);
@@ -67,6 +67,25 @@ router.post("/logout", (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const userData = await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!userData) {
+      res.status(404).json({ message: "No user found with this id!" });
+      return;
+    }
+
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

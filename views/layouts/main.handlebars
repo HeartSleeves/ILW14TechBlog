@@ -9,13 +9,13 @@
   </head>
   <header class="header">
     <nav>
-      <a id="home" href="/">Home</a>
-      <a id="dashboard" href="/dashboard">Dashboard</a>
+      <a id="home" class="navbtn" href="/">Home</a>
+      <a id="dashboard"  class="navbtn" href="/dashboard">Dashboard</a>
       {{#if logged_in}}
-      <button id="logout">Logout</button>
+      <button id="logout" class="navbtn" >Logout</button>
       {{else}}
-      <a id="login" href="/login">Login</a>
-      <a id="signup" href="/signup">Signup</a>
+      <a id="login"  class="navbtn" href="/login">Login</a>
+      <a id="signup" class="navbtn"  href="/signup">Signup</a>
       {{/if}}
     </nav>
     <h1 id="sitetitle">Tech Blog</h1>
