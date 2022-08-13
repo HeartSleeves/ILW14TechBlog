@@ -1,4 +1,5 @@
-<body class="bodydisplay">
+<body>
+  <div class="bodydisplay">
   <div class="dashboard">
     <h2 class="dashheader">Welcome {{name}}!</h2>
     {{#if posts.length}}
@@ -11,9 +12,9 @@
 
   {{#if posts.length}}
     <div>
-      <span>
-        <article class="post">
+      <span class="post-list">
   {{#each posts as |post|}}
+    <article class="post">
       <div class="posthead">
         <h2 class="posttitle"><a
             href="/post/{{post.id}}"
@@ -27,8 +28,8 @@
         </p>
         <button class="deletebtn" data-id="{{post.id}}">X</button>
       </div>
+    </article>
   {{/each}}
-</article>
 </span>
     </div>
   {{/if}}
@@ -60,6 +61,6 @@
     </div>
   </form>
   <button id="addpost">Make a new post</button>
-</body>
+</div></body>
 
 <script src="./js/profile.js"></script><script src="/js/post.js"></script>

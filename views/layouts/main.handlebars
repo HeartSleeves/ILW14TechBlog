@@ -20,14 +20,12 @@
     </nav>
     <h1 id="sitetitle">Tech Blog</h1>
   </header>
-      <!-- Render the sub layout -->
       {{{ body }}}
     <footer>
       
     </footer>
   </div>
 
-  <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
