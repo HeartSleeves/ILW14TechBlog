@@ -27,6 +27,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+//get single post
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -45,6 +46,33 @@ router.get("/post/:id", async (req, res) => {
     const post = postData.get({ plain: true });
 
     res.render("post", {
+      ...post,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//get post for update
+router.get("/posts/update/:id", async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+        {
+          model: Comment,
+          include: [{ model: User, attributes: ["name", "id"] }],
+        },
+      ],
+    });
+
+    const post = postData.get({ plain: true });
+
+    res.render("updatepost", {
       ...post,
       logged_in: req.session.logged_in,
     });

@@ -111,6 +111,10 @@ nav {
   color: #f2f7f5;
   font-size: larger;
 }
+.updatetitle {
+  color: #00473e;
+  font-size: larger;
+}
 .posttitle:hover {
   cursor: pointer;
 }
@@ -148,11 +152,15 @@ nav {
   font-weight: 500;
   margin: 5px 30px 0 10px;
 }
+.postbody textarea {
+  width: 100%;
+}
 .deletebtn {
   position: relative;
   left: 102%;
   bottom: 20px;
   color: red;
+  font-weight: 600;
   background-color: #f2f7f5;
   border: none;
 }

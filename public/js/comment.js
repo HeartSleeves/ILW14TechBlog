@@ -1,6 +1,5 @@
 const addComment = async (event) => {
   event.preventDefault();
-  console.log(postid);
   const body = document.querySelector("#bodyinput").value.trim();
 
   if (body) {
@@ -12,11 +11,12 @@ const addComment = async (event) => {
 
     if (response.ok) {
       console.log("success");
+      document.querySelector("#addcomment").classList.add("hidden");
+      window.location.reload();
     } else {
       alert(response.statusText);
     }
   }
-  document.querySelector("#addcomment").classList.add("hidden");
 };
 
 function showAddComment() {
